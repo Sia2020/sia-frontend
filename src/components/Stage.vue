@@ -2,9 +2,8 @@
   <div
     :class="[{ 'full-screen': !loggedInAsDirector && currentPhase === this.PHASES.SHOW_TIME}, 'stage']">
     <div class="resp-iframe-wrapper">
-      <iframe class="resp-iframe" src="https://www.youtube-nocookie.com/embed/e3Q6vBIvuuU?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe class="resp-iframe" src="https://www.youtube-nocookie.com/embed/e3Q6vBIvuuU?controls=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <!-- &autoplay=1 -->
     <div class="curtains">
       <transition name="announcement">
         <div v-show="announcementVisible" class="announcement-wrapper">
