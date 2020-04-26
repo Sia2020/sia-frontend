@@ -11,6 +11,16 @@
 <script>
 export default {
   name: 'Timer',
+  created() {
+    const endTime = this.getEndTime()
+    this.countdown(endTime)
+  },
+  data: function () {
+    return {
+      minutesRemaining: this.timerValue.minutes,
+      secondsRemaining: this.timerValue.seconds,
+    }
+  },
   props: {
     timerValue: {
       type: Object,
@@ -24,12 +34,47 @@ export default {
   },
   computed: {
     minutes: function () {
-      return ("0" + this.timerValue.minutes).slice(-2)
+      return ("0" + this.minutesRemaining).slice(-2)
     },
     seconds: function () {
-      return ("0" + this.timerValue.seconds).slice(-2)
+      return ("0" + this.secondsRemaining).slice(-2)
     },
-  }
+  },
+  methods:  {
+    getEndTime: function () {
+      const now = Date.now()
+      const expiry = now + this.timerValue.minutes * 60000
+      return expiry
+    },
+    getTimeRemaining: function (endTime) {
+      const t = endTime - Date.now()
+      const seconds = Math.floor( (t/1000) % 60 )
+      const minutes = Math.floor( (t/1000/60) % 60 )
+      return {
+        minutes,
+        seconds,
+      }
+    },
+    moveTheClock: function (that, endTime) {
+      const { minutes, seconds } = that.getTimeRemaining(endTime)
+
+      that.minutesRemaining = minutes
+      that.secondsRemaining = seconds
+
+      if(minutes === 0 && seconds === 0) {
+        clearInterval(that.intervalTimer)
+      }
+    },
+    countdown: function (endTime) {
+      const that = this
+      this.intervalTimer = setInterval(() => {
+        that.moveTheClock(that, endTime)
+      }, 1000);
+    },
+  },
+  destroyed() {
+    clearInterval(this.intervalTimer)
+  },
 }
 </script>
 

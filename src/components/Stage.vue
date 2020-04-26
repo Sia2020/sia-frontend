@@ -13,7 +13,7 @@
         </div>
       </transition>
       <transition name="announcement">
-        <Timer v-show="showTimer" :timerValue="timerValue" absolute light />
+        <Timer v-if="showTimer" :timerValue="timerValue" absolute light />
       </transition>
       <transition name="announcement">
         <div v-if="bellRinging" class="bell-wrapper">

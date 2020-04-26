@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="dynamic-content">
-      <Timer v-show="showTimer" :timerValue="timerValue" />
+      <Timer v-if="showTimer" :timerValue="timerValue" />
       <button
         v-if="currentPhase === this.PHASES.BEFORE_THE_BELL"
         v-on:click="ringFirstBell">
