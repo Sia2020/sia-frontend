@@ -103,7 +103,6 @@ export default {
           break;
       }
     },
-    // all these methods will be removed once we have backend connected
     toggleCurtain: function () {
       this.curtainOpen = !this.curtainOpen
     },
@@ -135,6 +134,7 @@ export default {
   destroyed() {
     clearTimeout(this.bellTimeout)
     clearTimeout(this.intermissionTimeout)
+    clearTimeout(this.pingTimeout)
     delete this.$options.sockets.onmessage
   },
 }
@@ -164,7 +164,6 @@ export default {
   flex-grow: 1;
   flex-shrink: 1;
   width: 0; /* needed for smooth transition back from full-screen */
-  /* border: solid 1px black; */
 }
 
 .toggle-wrapper {

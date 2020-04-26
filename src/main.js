@@ -5,7 +5,9 @@ import VueNativeSock from 'vue-native-websocket'
 import "@/assets/global.css"
 
 Vue.config.productionTip = false
-Vue.use(VueNativeSock, 'wss://sia-app-websockets.herokuapp.com/')
+Vue.use(VueNativeSock, 'wss://sia-backend-test.herokuapp.com/', {
+  reconnection: true,
+})
 
 new Vue({
   render: h => h(App),
