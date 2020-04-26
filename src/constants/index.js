@@ -10,3 +10,12 @@ export const ROLES = {
   SPECTATOR: 'spectator',
   DIRECTOR: 'director',
 }
+
+export const SOCKET_EVENTS = {
+  CLAP: 'clap',
+  OPEN_CURTAIN: 'open-curtain',
+  CLOSE_CURTAIN: 'close-curtain',
+  RING_BELL: 'ring-bell',
+  START_INTERMISSION: 'start-intermission',
+  END_PLAY: 'end-play'
+}

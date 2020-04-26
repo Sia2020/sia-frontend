@@ -46,7 +46,7 @@
 // TODO: actually stop the stream when curtains are closed?
 // for youtube: https://developers.google.com/youtube/iframe_api_reference?hl=en#Loading_a_Video_Player
 // TODO: possibly show timer here as well in spectator view
-import { PHASES } from '../../src/constants'
+import { PHASES, SOCKET_EVENTS } from '../../src/constants'
 import Timer from './Timer'
 
 export default {
@@ -115,6 +115,7 @@ export default {
       this.clapCount++
       // instead of line below, there will be request to the backend to increase total claps
       this.$emit('clap')
+      this.$socket.send(SOCKET_EVENTS.CLAP)
     }
   },
   watch: {
