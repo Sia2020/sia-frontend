@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<svg
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:ns1="http://sozi.baierouge.fr"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    id="svg3169"
+    viewBox="0 0 111.43 262.84"
+    version="1.1"
+  >
+  <title
+      id="title3226"
+    >Teacher's Bell</title
+  >
+  <defs
+      id="defs3171"
+    >
+    <filter
+        id="filter3838"
+        color-interpolation-filters="sRGB"
+      >
+      <feGaussianBlur
+          id="feGaussianBlur3840"
+          stdDeviation="0.60559308"
+      />
+    </filter
+    >
+    <filter
+        id="filter3868"
+        height="1.0743"
+        width="1.3923"
+        y="-.037172"
+        x="-.19616"
+        color-interpolation-filters="sRGB"
+      >
+      <feGaussianBlur
+          id="feGaussianBlur3870"
+          stdDeviation="1.5770742"
+      />
+    </filter
+    >
+    <filter
+        id="filter3884"
+        color-interpolation-filters="sRGB"
+      >
+      <feGaussianBlur
+          id="feGaussianBlur3886"
+          stdDeviation="0.21594823"
+      />
+    </filter
+    >
+  </defs
+  >
+  <g
+      id="layer1"
+      transform="translate(-329.94 -486.68)"
+    >
+    <g
+        id="g3992"
+        transform="matrix(.84220 .20340 -.20340 .84220 362.69 182)"
+      >
+      <path
+          id="path3052"
+          style="color:#000000"
+          d="m150 577.36c0 2.7614-4.4772 5-10 5s-10-2.2386-10-5 4.4772-5 10-5 10 2.2386 10 5z"
+          transform="translate(38,-4)"
+          stroke="#000"
+          stroke-width=".5"
+          fill="#fd5"
+      />
+      <g
+          id="g3016"
+          stroke="#000"
+          stroke-width=".5"
+          transform="translate(0 7.5)"
+          fill="#fd5"
+        >
+        <path
+            id="path2991"
+            style="color:#000000"
+            d="m155 317.36c-5.5228 0-10 4.4772-10 10s4.4772 10 10 10 10-4.4772 10-10-4.4772-10-10-10zm-0.5 5c0.16809-0.0171 0.32741 0 0.5 0 2.7614 0 5 2.2386 5 5s-2.2386 5-5 5-5-2.2386-5-5c0-2.5888 1.9787-4.744 4.5-5z"
+        />
+        <rect
+            id="rect3014"
+            style="color:#000000"
+            height="5"
+            width="5"
+            y="337.36"
+            x="152.5"
+        />
+      </g
+      >
+      <path
+          id="path2987"
+          d="m100 572.36c0.35132-9.6487 1.7518-18.248 10-20 17.26-36.667 18.286-73.333 20-110 18.168-9.0099 34.489-6.9326 50 0 2.2879 36.667 4.6873 73.333 20 110 8.5826 3.1672 9.2095 11.638 10 20z"
+          stroke="#000"
+          stroke-width="1px"
+          fill="#ffd42a"
+      />
+      <path
+          id="path2989"
+          stroke="#000"
+          stroke-width="1px"
+          d="m140 438.36c8.9539-2.2853 18.404-4.2759 30 0l-10-10c5-26 10-51 10-70-1.4386-4.4892-10-10-10-10h-10s-10 5.286-10 10c0 19 10 70 10 70z"
+      />
+      <path
+          id="path3042"
+          d="m110 552.36h90"
+          stroke="#000"
+          stroke-width="1px"
+          fill="none"
+      />
+      <path
+          id="path3064"
+          filter="url(#filter3838)"
+          d="m131.52 446.37s-0.73976 39.391-4.2426 58.69c-2.6772 14.75-12.728 43.134-12.728 43.134s8.0838-12.263 10.607-19.092c4.9177-13.312 7.4292-27.568 8.4853-41.719 1.0187-13.651-2.1213-41.012-2.1213-41.012z"
+          fill="#ff0"
+      />
+      <path
+          id="path3842"
+          filter="url(#filter3868)"
+          d="m131.52 446.37s-0.73976 39.391-4.2426 58.69c-2.6772 14.75-12.728 43.134-12.728 43.134s8.0838-12.263 10.607-19.092c4.9177-13.312 7.4292-27.568 8.4853-41.719 1.0187-13.651-2.1213-41.012-2.1213-41.012z"
+          fill="#fff"
+          transform="matrix(.84076 0 0 1.1099 18.01 -60.655)"
+      />
+      <path
+          id="path3872"
+          d="m102.41 570.12s-1.1449-6.8046 0-9.8995c1.5079-4.0762 8.4853-9.8995 8.4853-9.8995s-1.6567 8.7456-3.5355 12.728c-1.2276 2.602-4.9498 7.0711-4.9498 7.0711z"
+          fill="#ff0"
+      />
+      <path
+          id="path3874"
+          filter="url(#filter3884)"
+          d="m102.41 570.12s-1.1449-6.8046 0-9.8995c1.5079-4.0762 8.4853-9.8995 8.4853-9.8995s-1.6567 8.7456-3.5355 12.728c-1.2276 2.602-4.9498 7.0711-4.9498 7.0711z"
+          fill="#fff"
+          transform="matrix(.49242 .11877 -.23447 .97212 184.3 2.98)"
+      />
+    </g
+    >
+    <g
+        id="g4216"
+        stroke="#000"
+        stroke-linecap="round"
+        transform="translate(277.37 128.79)"
+        fill="none"
+      >
+      <path
+          id="path4210"
+          stroke-width="4"
+          d="m88 586.36c26.419 27.15 58.989 1.0094 59 1"
+      />
+      <path
+          id="path4212"
+          stroke-width="4.3207"
+          d="m82.16 596.52c31.649 26.444 70.666 0.9832 70.679 0.974"
+      />
+      <path
+          id="path4214"
+          stroke-width="4.7427"
+          d="m73.371 606.73c39.521 25.516 88.24 0.94867 88.257 0.93978"
+      />
+    </g
+    >
+  </g
+  >
+  <metadata
+    >
+    <rdf:RDF
+      >
+      <cc:Work
+        >
+        <dc:format
+          >image/svg+xml</dc:format
+        >
+        <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        />
+        <cc:license
+            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
+        />
+        <dc:publisher
+          >
+          <cc:Agent
+              rdf:about="http://openclipart.org/"
+            >
+            <dc:title
+              >Openclipart</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:publisher
+        >
+        <dc:title
+          >Ringing Bell</dc:title
+        >
+        <dc:date
+          >2013-06-27T13:07:54</dc:date
+        >
+        <dc:description
+          >Handheld bell like one rung to call students in from recess.</dc:description
+        >
+        <dc:source
+          >https://openclipart.org/detail/179503/ringing-bell-by-algotruneman-179503</dc:source
+        >
+        <dc:creator
+          >
+          <cc:Agent
+            >
+            <dc:title
+              >algotruneman</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:creator
+        >
+        <dc:subject
+          >
+          <rdf:Bag
+            >
+            <rdf:li
+              >bell</rdf:li
+            >
+            <rdf:li
+              >handbell</rdf:li
+            >
+            <rdf:li
+              >ring</rdf:li
+            >
+            <rdf:li
+              >teacher</rdf:li
+            >
+          </rdf:Bag
+          >
+        </dc:subject
+        >
+      </cc:Work
+      >
+      <cc:License
+          rdf:about="http://creativecommons.org/licenses/publicdomain/"
+        >
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Reproduction"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Distribution"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
+        />
+      </cc:License
+      >
+    </rdf:RDF
+    >
+  </metadata
+  >
+</svg
+>
