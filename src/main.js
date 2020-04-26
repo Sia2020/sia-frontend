@@ -7,6 +7,7 @@ import "@/assets/global.css"
 Vue.config.productionTip = false
 Vue.use(VueNativeSock, 'wss://sia-backend-test.herokuapp.com/', {
   reconnection: true,
+  format: 'json',
 })
 
 new Vue({

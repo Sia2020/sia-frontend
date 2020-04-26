@@ -53,14 +53,12 @@ export default {
       }
     },
     onAudienceChatClick: function () {
-      console.log('onAudienceChatClick')
       if (!this.displayName) {
         this.nameInputOpen = true
       }
       this.audienceChatOpen = true
     },
     onCrewChatClick: function () {
-      console.log('onCrewChatClick')
       if (!this.displayName) {
         this.nameInputOpen = true
       }

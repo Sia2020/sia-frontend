@@ -17,5 +17,7 @@ export const SOCKET_EVENTS = {
   CLOSE_CURTAIN: 'close-curtain',
   RING_BELL: 'ring-bell',
   START_INTERMISSION: 'start-intermission',
-  END_PLAY: 'end-play'
+  END_PLAY: 'end-play',
+  START_PLAY: 'start-play',
+  END_INTERMISSION: 'end-intermission',
 }

@@ -11,7 +11,7 @@
         :currentPhase="currentPhase"
         :curtainOpen="curtainOpen"
         :loggedInAsDirector="loggedInAsDirector"
-        :timerValue="timerValue"
+        :timerEnd="timerEnd"
         :showTimer="showTimer"
         v-on:clap="increaseClapCount" />
       <transition name="view-fade" mode="out-in">
@@ -21,7 +21,7 @@
           :currentPhase="currentPhase"
           :curtainOpen="curtainOpen"
           :showTimer="showTimer"
-          :timerValue="timerValue"
+          :timerEnd="timerEnd"
           :totalClapCount="totalClapCount"
           v-on:toggle-curtain="toggleCurtain"
           v-on:start-intermission="startIntermission"
@@ -60,6 +60,7 @@ export default {
       currentPhase: PHASES.BEFORE_THE_BELL, // backend + director view state
       currentAct: 1, // backend + director view state
       loggedInAsDirector: false, // depends on which user is logged in
+      timerEnd: null,
     }
   },
   computed: {
@@ -67,7 +68,9 @@ export default {
       return this.loggedInAsDirector ? DirectorView : SpectatorView
     },
     showTimer: function () {
-      if (this.currentPhase === PHASES.AFTER_THE_BELL || this.currentPhase === PHASES.INTERMISSION) {
+      if (this.timerEnd &&
+        (this.currentPhase === PHASES.AFTER_THE_BELL || this.currentPhase === PHASES.INTERMISSION)
+      ) {
         return true
       }
       return false
@@ -80,27 +83,47 @@ export default {
     }
   },
   methods: {
-    onWebsocketMessage: function (event) {
-      console.log(event)
-      switch(event) {
-        case SOCKET_EVENTS.CLAP:
-          this.increaseClapCount()
-          break;
-        case SOCKET_EVENTS.OPEN_CURTAIN:
-          this.curtainOpen = true
-          break;
-        case SOCKET_EVENTS.CLOSE_CURTAIN:
-          this.curtainOpen = false
-          break;
-        case SOCKET_EVENTS.RING_BELL:
-          this.ringFirstBell()
-          break;
-        case SOCKET_EVENTS.START_INTERMISSION:
-          this.currentPhase = PHASES.INTERMISSION
-          break;
-        case SOCKET_EVENTS.END_PLAY:
-          this.currentPhase = PHASES.AFTER_THE_SHOW
-          break;
+    onWebsocketMessage: function (data) {
+      if (Object.values(SOCKET_EVENTS).includes(data)) {
+        console.log(data)
+        switch(data) {
+          case SOCKET_EVENTS.CLAP:
+            this.increaseClapCount()
+            break;
+          case SOCKET_EVENTS.OPEN_CURTAIN:
+            this.curtainOpen = true
+            break;
+          case SOCKET_EVENTS.CLOSE_CURTAIN:
+            this.curtainOpen = false
+            break;
+          case SOCKET_EVENTS.RING_BELL:
+            this.ringFirstBell()
+            break;
+          case SOCKET_EVENTS.START_INTERMISSION:
+            this.currentPhase = PHASES.INTERMISSION
+            break;
+          case SOCKET_EVENTS.END_PLAY:
+            this.currentPhase = PHASES.AFTER_THE_SHOW
+            break;
+          case SOCKET_EVENTS.START_PLAY:
+          case SOCKET_EVENTS.END_INTERMISSION:
+            this.currentPhase = PHASES.SHOW_TIME
+            break;
+        }
+      } else {
+        let parsedData
+        try {
+          parsedData = JSON.parse(data)
+        } catch (err) {
+          console.log('error when parsing websocket data: ', err)
+          return
+        }
+        console.log(parsedData)
+        this.curtainOpen = parsedData.curtainOpen
+        this.totalClapCount = parsedData.totalClapCount
+        this.currentPhase = parsedData.currentPhase
+        this.currentAct = parsedData.currentAct
+        this.timerEnd = parsedData.timerEnd
       }
     },
     toggleCurtain: function () {
@@ -110,26 +133,34 @@ export default {
       this.totalClapCount++
     },
     ringFirstBell: function () {
-      this.currentPhase = PHASES.AFTER_THE_BELL
-      const that = this
-      this.bellTimeout = setTimeout(function () {
-        that.currentPhase = PHASES.SHOW_TIME
-      }, 5000)
+      // this.currentPhase = PHASES.AFTER_THE_BELL
+      // const that = this
+      // this.bellTimeout = setTimeout(function () {
+      //   that.currentPhase = PHASES.SHOW_TIME
+      // }, 5000)
     },
     startIntermission: function () {
-      this.currentPhase = PHASES.INTERMISSION
-      const that = this
-      if (this.intermissionTimeout) {
-        clearTimeout(this.intermissionTimeout)
-      }
-      this.intermissionTimeout = setTimeout(function () {
-        that.currentPhase = PHASES.SHOW_TIME
-        that.currentAct++
-      }, 5000)
+      // this.currentPhase = PHASES.INTERMISSION
+      // const that = this
+      // if (this.intermissionTimeout) {
+      //   clearTimeout(this.intermissionTimeout)
+      // }
+      // this.intermissionTimeout = setTimeout(function () {
+      //   that.currentPhase = PHASES.SHOW_TIME
+      //   that.currentAct++
+      // }, 5000)
     },
     endShow: function () {
       this.currentPhase = PHASES.AFTER_THE_SHOW
     },
+  },
+  watch: {
+    currentPhase: function () {
+      // ugly, fix it later
+      if (this.currentPhase === PHASES.SHOW_TIME) {
+        this.timerEnd = null
+      }
+    }
   },
   destroyed() {
     clearTimeout(this.bellTimeout)

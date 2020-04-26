@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
     <div class="dynamic-content">
-      <Timer v-if="showTimer" :timerValue="timerValue" />
+      <Timer v-if="showTimer" :timerEnd="timerEnd" />
       <button
         v-if="currentPhase === this.PHASES.BEFORE_THE_BELL"
         v-on:click="ringFirstBell">
-        Ring the first bell (10 minutes to show time)
+        Ring the first bell
       </button>
       <div class="show-status" v-if="currentPhase === this.PHASES.SHOW_TIME">
         Show time!
@@ -71,8 +71,8 @@ export default {
     currentAct: {
       type: Number,
     },
-    timerValue: {
-      type: Object,
+    timerEnd: {
+      type: Number,
     },
   },
   methods: {

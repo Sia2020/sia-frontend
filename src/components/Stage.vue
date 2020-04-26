@@ -13,7 +13,7 @@
         </div>
       </transition>
       <transition name="announcement">
-        <Timer v-if="showTimer" :timerValue="timerValue" absolute light />
+        <Timer v-if="showTimer" :timerEnd="timerEnd" absolute light />
       </transition>
       <transition name="announcement">
         <div v-if="bellRinging" class="bell-wrapper">
@@ -79,8 +79,8 @@ export default {
     showTimer: {
       type: Boolean,
     },
-    timerValue: {
-      type: Object,
+    timerEnd: {
+      type: Number,
     },
   },
   computed: {

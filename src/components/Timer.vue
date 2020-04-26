@@ -12,18 +12,18 @@
 export default {
   name: 'Timer',
   created() {
-    const endTime = this.getEndTime()
-    this.countdown(endTime)
+    // const timerEnd = this.getEndTime()
+    this.countdown(this.timerEnd)
   },
   data: function () {
     return {
-      minutesRemaining: this.timerValue.minutes,
-      secondsRemaining: this.timerValue.seconds,
+      minutesRemaining: this.getTimeRemaining().minutes,
+      secondsRemaining: this.getTimeRemaining().seconds,
     }
   },
   props: {
-    timerValue: {
-      type: Object,
+    timerEnd: {
+      type: Number,
     },
     absolute: {
       type: Boolean,
@@ -41,13 +41,14 @@ export default {
     },
   },
   methods:  {
-    getEndTime: function () {
+    // getEndTime: function () {
+    //   const now = Date.now()
+    //   const expiry = now + this.timerValue.minutes * 60000
+    //   return expiry
+    // },
+    getTimeRemaining: function () {
       const now = Date.now()
-      const expiry = now + this.timerValue.minutes * 60000
-      return expiry
-    },
-    getTimeRemaining: function (endTime) {
-      const t = endTime - Date.now()
+      const t = this.timerEnd - now
       const seconds = Math.floor( (t/1000) % 60 )
       const minutes = Math.floor( (t/1000/60) % 60 )
       return {
@@ -55,8 +56,8 @@ export default {
         seconds,
       }
     },
-    moveTheClock: function (that, endTime) {
-      const { minutes, seconds } = that.getTimeRemaining(endTime)
+    moveTheClock: function (that) {
+      const { minutes, seconds } = that.getTimeRemaining()
 
       that.minutesRemaining = minutes
       that.secondsRemaining = seconds
@@ -65,10 +66,10 @@ export default {
         clearInterval(that.intervalTimer)
       }
     },
-    countdown: function (endTime) {
+    countdown: function () {
       const that = this
       this.intervalTimer = setInterval(() => {
-        that.moveTheClock(that, endTime)
+        that.moveTheClock(that)
       }, 1000);
     },
   },
