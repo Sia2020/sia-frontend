@@ -35,7 +35,7 @@
 
 <script>
 // TODO: this will be "play" view later on
-import { PHASES, ROLES } from './constants'
+import { PHASES, ROLES, SOCKET_EVENTS } from './constants'
 import Stage from './components/Stage.vue'
 import DirectorView from './components/DirectorView.vue'
 import SpectatorView from './components/SpectatorView.vue'
@@ -50,6 +50,7 @@ export default {
   created () {
     this.PHASES = PHASES,
     this.ROLES = ROLES
+    this.$options.sockets.onmessage = ({ data }) => this.onWebsocketMessage(data)
   },
   data: function () {
     return {
@@ -79,6 +80,29 @@ export default {
     }
   },
   methods: {
+    onWebsocketMessage: function (event) {
+      console.log(event)
+      switch(event) {
+        case SOCKET_EVENTS.CLAP:
+          this.increaseClapCount()
+          break;
+        case SOCKET_EVENTS.OPEN_CURTAIN:
+          this.curtainOpen = true
+          break;
+        case SOCKET_EVENTS.CLOSE_CURTAIN:
+          this.curtainOpen = false
+          break;
+        case SOCKET_EVENTS.RING_BELL:
+          this.ringFirstBell()
+          break;
+        case SOCKET_EVENTS.START_INTERMISSION:
+          this.currentPhase = PHASES.INTERMISSION
+          break;
+        case SOCKET_EVENTS.END_PLAY:
+          this.currentPhase = PHASES.AFTER_THE_SHOW
+          break;
+      }
+    },
     // all these methods will be removed once we have backend connected
     toggleCurtain: function () {
       this.curtainOpen = !this.curtainOpen

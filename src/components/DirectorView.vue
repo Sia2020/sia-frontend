@@ -84,23 +84,23 @@ export default {
         this.$socket.send(SOCKET_EVENTS.OPEN_CURTAIN)
       }
       this.curtainWasOpen = true
-      this.$emit('toggle-curtain')
+      // this.$emit('toggle-curtain')
     },
     ringFirstBell: function () {
       // this method will call the backend instead
       this.$socket.send(SOCKET_EVENTS.RING_BELL)
-      this.$emit('ring-first-bell')
+      // this.$emit('ring-first-bell')
     },
     startIntermission: function () {
       // this method will call the backend instead
       this.$socket.send(SOCKET_EVENTS.START_INTERMISSION)
       this.curtainWasOpen = false
-      this.$emit('start-intermission')
+      // this.$emit('start-intermission')
     },
     endShow: function () {
       // this method will call the backend instead
       this.$socket.send(SOCKET_EVENTS.END_PLAY)
-      this.$emit('end-show')
+      // this.$emit('end-show')
     }
   },
 }

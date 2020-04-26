@@ -114,7 +114,7 @@ export default {
     clap: function () {
       this.clapCount++
       // instead of line below, there will be request to the backend to increase total claps
-      this.$emit('clap')
+      // this.$emit('clap')
       this.$socket.send(SOCKET_EVENTS.CLAP)
     }
   },
