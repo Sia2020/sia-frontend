@@ -135,6 +135,7 @@ export default {
   destroyed() {
     clearTimeout(this.bellTimeout)
     clearTimeout(this.intermissionTimeout)
+    delete this.$options.sockets.onmessage
   },
 }
 </script>
