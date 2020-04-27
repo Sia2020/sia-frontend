@@ -4,6 +4,17 @@
       <input type="checkbox" class="checkbox" v-model="loggedInAsDirector">
       <label for="checkbox">see director's view</label>
     </div>
+    <div class="modal" v-if="modalOpen">
+      <button v-on:click="closeModal" class="modal-close-btn">X</button>
+      <h1 class="modal-h1">This is the MVP of SIA theater view.</h1>
+      <p class="modal-p">To fully enjoy it, please do the following:</p>
+      <ul class="modal-ul">
+        <li class="modal-li">on one computer, open this page and check "see director's view" checkbox. It's important that you only do this on a single computer (a play has a single director)</li>
+        <li class="modal-li">on another computer, or multiple computers, open this page as the audience and wait for the director's moves. Don't forget to clap in the right moments!</li>
+      </ul>
+      <p class="modal-p">If something doesn't work, it's possible that somebody else is also "directing". For now we have a single play only and everyone who opens this page is connected through the same backend.</p>
+      <button v-on:click="closeModal">Go to SIA theater</button>
+    </div>
     <div class="views-wrapper">
       <Stage
         class="separate-view stage-view"
@@ -54,6 +65,7 @@ export default {
   },
   data: function () {
     return {
+      modalOpen: true,
       curtainOpen: false,
       totalClapCount: 0,
       currentPhase: PHASES.BEFORE_THE_BELL,
@@ -82,6 +94,9 @@ export default {
     // }
   },
   methods: {
+    closeModal: function () {
+      this.modalOpen = false
+    },
     onWebsocketMessage: function (data) {
       if (Object.values(SOCKET_EVENTS).includes(data)) {
         console.log(data)
@@ -178,6 +193,45 @@ export default {
   text-align: center;
   color: #2c3e50;
   display: flex;
+}
+
+.modal-h1 {
+  margin: 24px;
+  font-size: 36px;
+}
+
+.modal-ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.modal-li {
+  padding: 8px;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 40px 30%;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  font-size: 24px;
+}
+
+.modal-p {
+  margin: 24px;
+}
+
+.modal-close-btn {
+  position: fixed;
+  top: 36px;
+  right: 36px;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
 }
 
 .views-wrapper {

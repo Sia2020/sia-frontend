@@ -30,8 +30,8 @@
       </button>
     </div>
     <div class="statistics">
-      <p>{{ totalClapCount }} claps received</p>
-      <p>{{ peopleWatching }} people watching</p>
+      <p class="statistics-p">{{ totalClapCount }} claps received</p>
+      <p class="statistics-p">{{ peopleWatching }} people watching</p>
     </div>
   </div>
 </template>
@@ -113,7 +113,7 @@ export default {
   padding: 16px;
 }
 
-p {
+.statistics-p {
   padding: 8px;
 }
 
