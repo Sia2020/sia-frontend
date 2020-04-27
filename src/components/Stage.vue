@@ -44,7 +44,6 @@
 // TODO: mute the video when curtains are closed
 // TODO: actually stop the stream when curtains are closed?
 // for youtube: https://developers.google.com/youtube/iframe_api_reference?hl=en#Loading_a_Video_Player
-// TODO: possibly show timer here as well in spectator view
 import { PHASES, SOCKET_EVENTS } from '../../src/constants'
 import Timer from './Timer'
 
@@ -94,12 +93,9 @@ export default {
           text = `Act ${this.currentAct} is starting now`
           break;
         case PHASES.INTERMISSION:
-          // TODO: take intermission time from play definition
-          // TODO: this one should not dissapear actually
           text = 'Intermission - please be back in:'
           break;
         case PHASES.AFTER_THE_SHOW:
-          // TODO: this one should not dissapear actually
           text = 'The play has ended'
           break;
       }
@@ -112,7 +108,6 @@ export default {
   methods: {
     clap: function () {
       this.clapCount++
-      // instead of line below, there will be request to the backend to increase total claps
       // this.$emit('clap')
       this.$socket.send(SOCKET_EVENTS.CLAP)
     }

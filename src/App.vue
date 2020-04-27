@@ -54,12 +54,11 @@ export default {
   },
   data: function () {
     return {
-      // all this will be coming from the backend in real time
       curtainOpen: false,
       totalClapCount: 0,
-      currentPhase: PHASES.BEFORE_THE_BELL, // backend + director view state
-      currentAct: 1, // backend + director view state
-      loggedInAsDirector: false, // depends on which user is logged in
+      currentPhase: PHASES.BEFORE_THE_BELL,
+      currentAct: 1,
+      loggedInAsDirector: false, // will depend on which user is logged in
       timerEnd: null,
     }
   },
@@ -75,12 +74,12 @@ export default {
       }
       return false
     },
-    timerValue: function () { // this will come from the backend every second - format TBD
-      return {
-        minutes: this.currentPhase === PHASES.INTERMISSION ? 20 : 10,
-        seconds: 0,
-      }
-    }
+    // timerValue: function () { // this will come from the backend every second - format TBD
+    //   return {
+    //     minutes: this.currentPhase === PHASES.INTERMISSION ? 20 : 10,
+    //     seconds: 0,
+    //   }
+    // }
   },
   methods: {
     onWebsocketMessage: function (data) {
@@ -127,7 +126,7 @@ export default {
       }
     },
     toggleCurtain: function () {
-      this.curtainOpen = !this.curtainOpen
+      // this.curtainOpen = !this.curtainOpen
     },
     increaseClapCount: function () {
       this.totalClapCount++
