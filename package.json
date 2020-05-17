@@ -41,6 +41,5 @@
     "last 2 versions",
     "not dead"
   ],
-  "postinstall": "npm run build",
-  "start": "node server.js"
+  "heroku-prebuild": "yarn add @vue/cli-service"
 }
