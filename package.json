@@ -40,6 +40,5 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "heroku-prebuild": "yarn add @vue/cli-service"
+  ]
 }
