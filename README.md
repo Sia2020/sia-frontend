@@ -22,3 +22,6 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Notes
+To get to run on heroku, need to add buildpack: https://github.com/heroku/heroku-buildpack-static
